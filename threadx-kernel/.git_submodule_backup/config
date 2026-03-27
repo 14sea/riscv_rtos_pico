@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/eclipse-threadx/threadx
+	fetch = +refs/tags/v6.4.1_rel:refs/tags/v6.4.1_rel
