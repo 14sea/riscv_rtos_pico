@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2026
+ *
+ * Licensed under the MIT License.
+ * See LICENSE file in the project root for full license information.
+ */
+
 // PicoRV32 SoC Top Level for AX301 (EP4CE6F17C8)
 //
 // Memory map:

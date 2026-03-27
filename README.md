@@ -53,4 +53,10 @@ openFPGALoader -c usb-blaster quartus/riscv_demo.rbf
 ## Notes
 
 - `firmware.hex` is an input artifact generated from selected firmware and should not be versioned.
-- Large waveform files (for example `sim/tb_soc.vcd`) should stay outside git.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Third-party components:
+- `FreeRTOS-Kernel-11.1.0/`: MIT License
+- `threadx-kernel/`: MIT License
+- `rtl/picorv32.v`: ISC License
