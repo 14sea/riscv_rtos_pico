@@ -1,0 +1,44 @@
+# Quartus generated files
+/quartus/db/
+/quartus/incremental_db/
+/quartus/output_files/
+/quartus/*.rbf
+/quartus/*.sof
+/quartus/*.rpt
+/quartus/*.summary
+
+# Firmware build outputs
+/firmware/*.elf
+/firmware/*.bin
+/firmware/*.hex
+/firmware/*.dis
+/firmware/**/*.elf
+/firmware/**/*.bin
+/firmware/**/*.hex
+/firmware/**/*.dis
+/firmware/**/*.map
+/firmware/**/*.o
+
+# Vendored kernel transient build outputs
+/FreeRTOS-Kernel-11.1.0/**/*.o
+
+# Simulation outputs
+/sim/**/*.vcd
+/sim/**/*.vvp
+/sim/**/*.fst
+/sim/**/*.log
+/sim/firmware.hex
+
+# Top-level generated artifact
+/firmware.hex
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Editor and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store

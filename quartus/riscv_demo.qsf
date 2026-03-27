@@ -1,0 +1,83 @@
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE6F17C8
+set_global_assignment -name TOP_LEVEL_ENTITY soc_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+# RTL sources
+set_global_assignment -name VERILOG_FILE ../rtl/soc_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/picorv32.v
+set_global_assignment -name VERILOG_FILE ../rtl/sdram_ctrl.v
+set_global_assignment -name VERILOG_FILE ../rtl/uart_periph.v
+
+# SDC
+set_global_assignment -name SDC_FILE riscv_demo.sdc
+
+# Pin assignments — Clock
+set_location_assignment PIN_E1 -to CLOCK
+
+# Reset button (active-low)
+set_location_assignment PIN_E16 -to KEY2
+
+# UART
+set_location_assignment PIN_M2 -to RXD
+set_location_assignment PIN_G1 -to TXD
+
+# LEDs (active-low)
+set_location_assignment PIN_G15 -to LED[0]
+set_location_assignment PIN_F16 -to LED[1]
+set_location_assignment PIN_F15 -to LED[2]
+set_location_assignment PIN_D16 -to LED[3]
+
+# SDRAM (HY57V2562GTR)
+set_location_assignment PIN_R4  -to S_CLK
+set_location_assignment PIN_R14 -to S_CKE
+set_location_assignment PIN_T6  -to S_NCS
+set_location_assignment PIN_R6  -to S_NRAS
+set_location_assignment PIN_T5  -to S_NCAS
+set_location_assignment PIN_N1  -to S_NWE
+set_location_assignment PIN_R7  -to S_BA[0]
+set_location_assignment PIN_T7  -to S_BA[1]
+set_location_assignment PIN_T8  -to S_A[0]
+set_location_assignment PIN_P9  -to S_A[1]
+set_location_assignment PIN_T9  -to S_A[2]
+set_location_assignment PIN_R9  -to S_A[3]
+set_location_assignment PIN_L16 -to S_A[4]
+set_location_assignment PIN_L15 -to S_A[5]
+set_location_assignment PIN_N16 -to S_A[6]
+set_location_assignment PIN_N15 -to S_A[7]
+set_location_assignment PIN_P16 -to S_A[8]
+set_location_assignment PIN_P15 -to S_A[9]
+set_location_assignment PIN_R8  -to S_A[10]
+set_location_assignment PIN_R16 -to S_A[11]
+set_location_assignment PIN_T15 -to S_A[12]
+set_location_assignment PIN_N2  -to S_DQM[0]
+set_location_assignment PIN_T14 -to S_DQM[1]
+set_location_assignment PIN_R5  -to S_DB[0]
+set_location_assignment PIN_T4  -to S_DB[1]
+set_location_assignment PIN_T3  -to S_DB[2]
+set_location_assignment PIN_R3  -to S_DB[3]
+set_location_assignment PIN_T2  -to S_DB[4]
+set_location_assignment PIN_R1  -to S_DB[5]
+set_location_assignment PIN_P2  -to S_DB[6]
+set_location_assignment PIN_P1  -to S_DB[7]
+set_location_assignment PIN_R13 -to S_DB[8]
+set_location_assignment PIN_T13 -to S_DB[9]
+set_location_assignment PIN_R12 -to S_DB[10]
+set_location_assignment PIN_T12 -to S_DB[11]
+set_location_assignment PIN_T10 -to S_DB[12]
+set_location_assignment PIN_R10 -to S_DB[13]
+set_location_assignment PIN_T11 -to S_DB[14]
+set_location_assignment PIN_R11 -to S_DB[15]
+
+# Disable nCEO so we can use PIN_F16 for LED[1]
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+
+# SDRAM I/O standard and drive strength
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to S_*
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to S_*
